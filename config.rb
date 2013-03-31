@@ -27,9 +27,20 @@ end
 ###---------------------------------------------------- Layout Settings
 
 page "/", layout: "public"
+page "/archive/*", layout: "public"
 page "/about", layout: "public"
 page "/email/*", layout: false
 page "/feed.xml", layout: false
+
+ready do
+  archive_resources = []
+  blog.articles.group_by {|a| a.date.month }.each do |month, month_articles, month_name|
+    archive_resources << {month: month, articles: month_articles } 
+  end
+  page "/archive/index.html", :layout => :public do
+    @archives = archive_resources
+  end
+ end
 
 
 ###---------------------------------------------------- Helper Methods

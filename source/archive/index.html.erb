@@ -1,0 +1,12 @@
+<h1>Archive</h1>
+
+<% @archives.each do |archive| %>
+	<h2><%= archive[:month] %></h2>
+	<ul>
+		<% archive[:articles].each do |article| %>
+      <li><%= link_to article.date.strftime('%A, %b %d'), article.url %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+
