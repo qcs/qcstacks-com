@@ -5,6 +5,13 @@
 
 = haml(:'partials/form')
 
-%ol
-  - current_subscribers.each do |s|
-    %li= "#{s.name} #{s.email}"
+= haml(:'partials/unsubscribe')
+
+
+- if current_subscribers
+  %ol
+    - current_subscribers.each do |s|
+      %li
+        = "#{s.name} &lt;#{s.email}&gt;"
+        %a{href: "/unsubscribe?email=#{s.email}"} Unsubscribe
+

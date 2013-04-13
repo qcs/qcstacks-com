@@ -9,4 +9,8 @@ class Subscriber < Sequel::Model
     validates_format(/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :email) unless email.empty?
   end
 
+  def self.find_by_email(email)
+    first(email: email)
+  end
+
 end

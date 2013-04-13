@@ -1,0 +1,7 @@
+%form{method: :post}
+  %fieldset
+    %legend Are you sure?
+    %input{type: :hidden, name: :subscriber_id, value: current_subscriber.id}
+    %p= "Clicking the button below will unsubscribe &lt;#{current_subscriber.email}&gt; from QCS."
+    %button I'm sure, unsubscribe me
+    %a{href: '/'} Cancel

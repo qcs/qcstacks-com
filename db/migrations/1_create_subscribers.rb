@@ -4,6 +4,7 @@ Sequel.migration do
       primary_key :id
       String :name, null: false
       String :email, null: false
+      Boolean :subscribed, null: false, default: true
       index :email, unique: true
     end
   end

@@ -20,14 +20,21 @@ end
 # ---------------------------------- Helpers
 
 helpers do
+
   def current_subscribers
-    Subscriber.all
+    Subscriber.where(subscribed: true)
   end
+
+  def current_subscriber
+    @subscriber ||= Subscriber.find_by_email(params[:email]) || halt(404)
+  end
+
 end
 
 # ---------------------------------- Routes
 
 get '/' do
+  @message = 'Unsubscribed successfully.' if params[:success]
   haml :index
 end
 
@@ -41,7 +48,22 @@ post '/' do
   haml :index
 end
 
+get '/unsubscribe' do
+  haml :unsubscribe
+end
+
+post '/unsubscribe' do
+  current_subscriber.subscribed = false
+  current_subscriber.save
+  redirect '/?success=1'
+end
+
 get '/test' do
   Subscriber.first.email
 end
 
+# ---------------------------------- Error handling
+
+error 404 do
+  '404 not found.'
+end
