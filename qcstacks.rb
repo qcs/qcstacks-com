@@ -4,8 +4,10 @@ require 'sinatra/sequel'
 # ---------------------------------- Configuration
 
 set :database, 'sqlite://db/qcs_development.sqlite'
-dataset = database[:subscribers]
+set :static, true
 set :haml, format: :html5, views: 'app/views', layout: :'layouts/application'
+
+# ---------------------------------- Models
 
 models = File.join(File.dirname(__FILE__), 'app', 'models') # path to your models
 $LOAD_PATH << File.expand_path(models)
@@ -17,7 +19,7 @@ def Object.const_missing(const)
   return klass if klass
 end
 
-# ---------------------------------- Helpers
+# ---------------------------------- Helper Methods
 
 helpers do
 
@@ -58,12 +60,9 @@ post '/unsubscribe' do
   redirect '/?success=1'
 end
 
-get '/test' do
-  Subscriber.first.email
-end
-
 # ---------------------------------- Error handling
 
 error 404 do
   '404 not found.'
 end
+
