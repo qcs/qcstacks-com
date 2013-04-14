@@ -4,24 +4,20 @@ require_relative '../helpers/subscribers_helper'
 class QCStacks < Sinatra::Application
 
   get '/' do
-    @message = 'Unsubscribed successfully.' if params[:success]
     haml :index
   end
 
   post '/' do
     begin
-      @success = Subscriber.create(params[:subscriber])
-      @message = "Thanks for signing up!"
+      flash[:notice] = "Thanks for signing up!" if Subscriber.create(params[:subscriber])
     rescue Sequel::ValidationFailed => e
       if e.message.eql?('email is already taken') && Subscriber.resubscribe?(params[:subscriber][:email])
-        @success = true
-        @message = "Subscription updated successfully."
+        flash[:notice] = "Subscription updated successfully."
       else
-        @success = false
-        @message = "Whoops! #{e.message.capitalize}."
+        flash[:error] = "Whoops! #{e.message.capitalize}."
       end
     end
-    haml :index
+    redirect '/'
   end
 
   get '/unsubscribe' do
@@ -31,7 +27,8 @@ class QCStacks < Sinatra::Application
   post '/unsubscribe' do
     current_subscriber.subscribed = false
     current_subscriber.save
-    redirect '/?success=1'
+    flash[:notice] = "Unsubscribed successfully."
+    redirect '/'
   end
 
   not_found do

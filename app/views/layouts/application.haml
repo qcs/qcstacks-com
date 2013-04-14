@@ -3,4 +3,7 @@
     %title qcstacks.com
   %body
     %section.container
+      - %w[notice error warning alert info].each do |key|
+        - if flash[key]
+          %div{:id => key,:class => "flash"}= flash[key]
       = yield

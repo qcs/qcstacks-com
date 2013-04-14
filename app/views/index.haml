@@ -1,9 +1,5 @@
-- if defined? @message
-  %p= @message
-
-= haml(:'partials/form')
-
-= haml(:'partials/unsubscribe')
+= haml(:'partials/form', layout: false)
+= haml(:'partials/unsubscribe', layout: false)
 
 
 - if current_subscribers
