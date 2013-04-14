@@ -1,4 +1,6 @@
 # encoding: utf-8
+require_relative '../helpers/subscribers_helper'
+
 class QCStacks < Sinatra::Application
 
   get '/' do
@@ -9,9 +11,15 @@ class QCStacks < Sinatra::Application
   post '/' do
     begin
       @success = Subscriber.create(params[:subscriber])
+      @message = "Thanks for signing up!"
     rescue Sequel::ValidationFailed => e
-      @success = false
-      @message = "Whoops! #{e.message.capitalize}."
+      if e.message.eql?('email is already taken') && Subscriber.resubscribe?(params[:subscriber][:email])
+        @success = true
+        @message = "Subscription updated successfully."
+      else
+        @success = false
+        @message = "Whoops! #{e.message.capitalize}."
+      end
     end
     haml :index
   end
@@ -26,7 +34,7 @@ class QCStacks < Sinatra::Application
     redirect '/?success=1'
   end
 
-  error 404 do
+  not_found do
     '404 not found.'
   end
 

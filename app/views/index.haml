@@ -1,6 +1,4 @@
-- if @success
-  %p Thanks for signing up!
-- elsif defined? @message
+- if defined? @message
   %p= @message
 
 = haml(:'partials/form')

@@ -4,9 +4,13 @@ require 'haml'
 
 class QCStacks < Sinatra::Application
 
+  set :static, true
+  set :haml, format: :html5, views: 'app/views', layout: :'layouts/application'
+
   configure :development do
-    set :static, true
-    set :haml, format: :html5, views: 'app/views', layout: :'layouts/application'
+    require 'better_errors'
+    use BetterErrors::Middleware
+    BetterErrors.application_root = File.expand_path("..", __FILE__)
   end
 
 end

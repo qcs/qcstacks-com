@@ -14,4 +14,9 @@ class Subscriber < Sequel::Model
     first(email: email)
   end
 
+  def self.resubscribe?(email)
+    subscriber = Subscriber.find(email: email, subscribed: false)
+    subscriber.update(subscribed: true) if subscriber
+  end
+
 end
