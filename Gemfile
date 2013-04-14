@@ -5,6 +5,7 @@ gem 'sequel'
 gem 'sinatra-sequel'
 gem 'sqlite3'
 gem 'haml'
+gem 'rake'
 
 group :development do
   gem 'thin'

@@ -1,3 +1,4 @@
+# encoding: utf-8
 Sequel::Model.plugin :validation_helpers
 
 class Subscriber < Sequel::Model

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Queen City Stacks</title>
+  <subtitle>he five-best Cincinnati stories, every day.</subtitle>
+  <id>http://queencitystacks.com/</id>
+  <link href="http://queencitystacks.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2013-03-30T00:00:00Z</updated>
+  <author>
+    <name>Queen City Stacks</name>
+  </author>
+  <entry>
+    <title>Mapping ridership on a linear corridor</title>
+    <link rel="alternate" href="http://cincymap.org/blog/mapping-ridership-on-a-linear-corridor"/>
+    <id>http://cincymap.org/blog/mapping-ridership-on-a-linear-corridor</id>
+    <published>2013-03-30T00:00:00Z</published>
+    <updated>2013-03-30T00:00:00Z</updated>
+    <author>
+      <name>Queen City Stacks</name>
+    </author>
+    <summary type="html">Nate Wessell is at it again. This time the transportation data nerd takes a look at ridership data and routes along Cincinnati's METRO line. Interesting stuff, too bad it's so hard for him to actually get this data. Someone at METRO should hire this kid, pronto.
+</summary>
+    <content type="html">Nate Wessell is at it again. This time the transportation data nerd takes a look at ridership data and routes along Cincinnati's METRO line. Interesting stuff, too bad it's so hard for him to actually get this data. Someone at METRO should hire this kid, pronto.
+</content>
+  </entry>
+  <entry>
+    <title>Businesses ordered to leave struggling Tower Place Mall in downtown Cincinnati</title>
+    <link rel="alternate" href="http://www.bizjournals.com/cincinnati/news/2013/01/10/businesses-ordered-to-leave-struggling.html"/>
+    <id>http://www.bizjournals.com/cincinnati/news/2013/01/10/businesses-ordered-to-leave-struggling.html</id>
+    <published>2013-03-30T00:00:00Z</published>
+    <updated>2013-03-30T00:00:00Z</updated>
+    <author>
+      <name>Queen City Stacks</name>
+    </author>
+    <summary type="html">First it was retail shops, now it's businesses. Tower Place can't buy a basket. The struggling downtown mall has ordered all five of it's remaining tenants to leave. The once-popular mall year-to-date income losses are more than $1 million.
+</summary>
+    <content type="html">First it was retail shops, now it's businesses. Tower Place can't buy a basket. The struggling downtown mall has ordered all five of it's remaining tenants to leave. The once-popular mall year-to-date income losses are more than $1 million.
+</content>
+  </entry>
+  <entry>
+    <title>Businesses ordered to leave struggling Tower Place Mall in downtown Cincinnati</title>
+    <link rel="alternate" href="http://www.bizjournals.com/cincinnati/news/2013/01/10/businesses-ordered-to-leave-struggling.html"/>
+    <id>http://www.bizjournals.com/cincinnati/news/2013/01/10/businesses-ordered-to-leave-struggling.html</id>
+    <published>2013-01-25T00:00:00Z</published>
+    <updated>2013-01-25T00:00:00Z</updated>
+    <author>
+      <name>Queen City Stacks</name>
+    </author>
+    <summary type="html">First it was retail shops, now it's businesses. Tower Place can't buy a basket. The struggling downtown mall has ordered all five of it's remaining tenants to leave. The once-popular mall year-to-date income losses are more than $1 million.
+</summary>
+    <content type="html">First it was retail shops, now it's businesses. Tower Place can't buy a basket. The struggling downtown mall has ordered all five of it's remaining tenants to leave. The once-popular mall year-to-date income losses are more than $1 million.
+</content>
+  </entry>
+</feed>
