@@ -6,6 +6,7 @@ namespace :qcs do
   task :parse do
     #p QCStacks::Parse.subscribers
     ses = QCStacks::SES.new
+    ses.mail
   end
 
 end
