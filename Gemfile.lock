@@ -7,33 +7,63 @@ GIT
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
 
-GIT
-  remote: git@github.com:treeder/rack-flash.git
-  revision: 1f60bb27a6ce0823a5c3ec368e91906270ab871a
-  specs:
-    rack-flash3 (1.0.3)
-      rack
-      rack
-
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (3.1.12)
+      multi_json (~> 1.0)
+    aws-ses (0.4.4)
+      builder
+      mail (> 2.2.5)
+      mime-types
+      xml-simple
     bacon (1.2.0)
     better_errors (0.8.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
+    builder (3.2.0)
     coderay (1.0.9)
+    curb (0.7.18)
     daemons (1.1.9)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    feedzirra (0.1.3)
+      activesupport (~> 3.1.1)
+      builder (>= 2.1.2)
+      curb (~> 0.7.15)
+      i18n (>= 0.5.0)
+      loofah (~> 1.2.0)
+      nokogiri (>= 1.4.4)
+      rake (>= 0.8.7)
+      rdoc (~> 3.8)
+      sax-machine (~> 0.1.0)
     haml (3.1.7)
+    i18n (0.6.4)
+    json (1.7.7)
+    loofah (1.2.1)
+      nokogiri (>= 1.4.4)
+    mail (2.5.3)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.22)
+    multi_json (1.7.2)
+    nokogiri (1.5.9)
+    polyglot (0.3.3)
     rack (1.5.2)
+    rack-flash3 (1.0.3)
+      rack
+      rack
     rack-protection (1.5.0)
       rack
     rake (10.0.3)
+    rdoc (3.12.2)
+      json (~> 1.4)
+    sax-machine (0.1.0)
+      nokogiri (> 0.0.0)
     sequel (3.46.0)
     shotgun (0.9)
       rack (>= 1.0)
@@ -47,15 +77,21 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.3.7)
+    treetop (1.4.12)
+      polyglot
+      polyglot (>= 0.3.1)
+    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-ses
   better_errors
   binding_of_caller
+  feedzirra
   haml
-  rack-flash3!
+  rack-flash3
   rake
   sequel
   shotgun

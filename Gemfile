@@ -7,6 +7,8 @@ gem 'rack-flash3'
 gem 'sqlite3'
 gem 'haml'
 gem 'rake'
+gem 'feedzirra'
+gem 'aws-ses'
 
 group :development do
   gem 'thin'
