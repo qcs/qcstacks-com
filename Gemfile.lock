@@ -99,3 +99,4 @@ DEPENDENCIES
   sinatra-sequel
   sqlite3
   thin
+  tilt

@@ -9,6 +9,7 @@ gem 'haml'
 gem 'rake'
 gem 'feedzirra'
 gem 'aws-ses'
+gem 'tilt'
 
 group :development do
   gem 'thin'

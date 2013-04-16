@@ -1,6 +1,7 @@
 require 'feedzirra'
 require 'aws/ses'
-require 'haml'
+require 'erb'
+require 'tilt'
 require_relative '../app/models/init'
 
 module QCStacks
@@ -19,24 +20,31 @@ module QCStacks
       end
     end
 
-    def self.subscribers
-      @subscribers ||= Subscriber.all
-    end
-
   end
 end
 
 class QCStacks::SES
 
+  def initialize
+    @subscribers = Subscriber.where(subscribed: true).all
+    @today = Time.now.strftime('%A, %B %d, %Y')
+  end
+
   def mail
+    @subscribers.each do |subscriber|
+      deliver(subscriber.email)
+    end
+  end
+
+  def deliver(recipient)
     ses = AWS::SES::Base.new(
       access_key_id: '05E9M3Q690VXTHYXSX82',
       secret_access_key: 'hKdDtMMW/BH2e0erWQ1eHfMm0rhimvEdizX5bTUX'
     )
     ses.send_email(
-      to: ['tcmacdonald@gmail.com', 'rcmerrill@gmail.com'],
+      to: recipient,
       from: 'tcmacdonald@gmail.com',
-      subject: "QCStacks for Monday April, 15th 2013",
+      subject: "QCStacks for #{@today}",
       html_body: body
     )
   end
@@ -44,10 +52,8 @@ class QCStacks::SES
   def body
     @entries = QCStacks::Parse.entries
     root = File.dirname(__FILE__)
-    layout = File.read("#{root}/../app/views/layouts/email.haml")
-    tpl = File.read("#{root}/../app/views/email.haml")
-    #Haml::Engine.nw(layout).render(Object.new, yield: body)
-    Haml::Engine.new(tpl).render(Object.new, entries: @entries)
+    template = Tilt::ERBTemplate.new("#{root}/../app/views/email.erb")
+    template.render(Object.new, entries: @entries)
   end
 
 end
