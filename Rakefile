@@ -5,21 +5,17 @@ task :build do
   puts status ? "OK" : "FAILED"
 end
 
-desc "deploy basic rack app to heroku"
+desc "deploy basic rack app to Github pages"
 multitask :deploy do
   puts "## Deploying to Github pages "
-  (Dir["_deploy/*"]).each { |f| rm_rf(f) }
-  system "cp -R build/* _deploy/"
-  puts "\n## copying build to _deploy"
-  system "cp source/CNAME _deploy/CNAME"
-  cd "_deploy" do
+  cd "build" do
     system "git add ."
     system "git add -u"
     puts "\n## Committing: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m '#{message}'"
     puts "\n## Pushing generated website"
-    system "git push origin master"
+    system "git push origin gh-pages"
     puts "\n## Github deploy complete"
   end
 end
