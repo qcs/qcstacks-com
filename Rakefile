@@ -21,5 +21,5 @@ multitask :deploy do
 end
 
 desc "Build and deploy website"
-  task :gen_deploy => [:build, :deploy] do
+  task :deploy => [:build, :deploy] do
 end
