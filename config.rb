@@ -29,6 +29,7 @@ end
 page "/", layout: "public"
 page "/archive/*", layout: "public"
 page "/about", layout: "public"
+page "/sign-up", layout: "public"
 page "/email/*", layout: false
 page "/feed.xml", layout: false
 
