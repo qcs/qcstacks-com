@@ -181,6 +181,24 @@ a {
   }
 } //main-content 
 
+.archives {
+  h1 {
+    font-size: calc-em(32px);
+  }
+  h2 {
+    font-size: calc-em(21px);
+    font-weight: normal;
+    i {
+      font-size: calc-em(14px, 21px);
+      line-height: 3em;
+    }
+  }
+  .archive-month {
+    > ul {
+      display: none;
+    }
+  }
+}
 
 // Individual Summary
 // --------------------------------------------------

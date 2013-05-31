@@ -60,6 +60,10 @@ helpers do
   def todays_articles
     @todays_articles ||= blog.articles.collect{ |a| a if a.date == Date.today }.compact
   end
+
+  def month(month)
+    
+  end
 end
 
 
