@@ -6,7 +6,7 @@ task :build do
 end
 
 desc "deploy basic rack app to Github pages"
-multitask :deploy do
+multitask :push do
   puts "## Deploying to Github pages "
   cd "build" do
     system "git add ."
@@ -21,5 +21,5 @@ multitask :deploy do
 end
 
 desc "Build and deploy website"
-  task :deploy => [:build, :deploy] do
+  task :deploy => [:build, :push] do
 end
