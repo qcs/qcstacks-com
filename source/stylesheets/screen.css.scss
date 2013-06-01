@@ -18,11 +18,11 @@ body {
 
 
 %lightened {
-  color: lighten($red, 30%);
+  color: lighten($blueDark, 30%);
   &:hover,
   &:active,
   &:focus {
-    color: $red;
+    color: $blueDark;
   }
 }
 
@@ -194,6 +194,13 @@ a {
     }
   }
   .archive-month {
+    time {
+      font-family: $altFontFamily;
+      font-size: calc-em(16px);
+      color: darken($grayLight, 5%);
+      font-weight: 400;
+    }
+    margin-bottom: calc-em(24px);
     > ul {
     }
   }
@@ -268,11 +275,7 @@ a {
 .about {
   .main-content {
     h1 {
-      font-size: calc-em(24px);
-      line-height: 1.25;
       margin-bottom: .219em;
-      font-weight: 600;
-      color: $red;
     }
   }
   

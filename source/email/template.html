@@ -37,10 +37,10 @@
     **/
     h1, h2, h3, h4, h5, h6 {color: black !important;}
 
-    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: #EB184B !important;}
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: #049cdb !important;}
 
     h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
-      color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+      color: #049CDB !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
      }
 
     h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
@@ -69,7 +69,7 @@
     /* Styling your links has become much simpler with the new Yahoo.  In fact, it falls in line with the main credo of styling in email, bring your styles inline.  Your link colors will be uniform across clients when brought inline.
 
     Bring inline: Yes. */
-    a {color: orange;}
+    a {color: #049CDB;}
 
     /* Or to go the gold star route...
     a:link { color: orange; }
@@ -93,6 +93,9 @@
     Read more: http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/
     */
     @media only screen and (max-device-width: 480px) {
+      #backgroundTable {
+        width: 100%;
+      }
 
       /* A nice and clean way to target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers.  Use these two blocks of code to "unstyle" any numbers that may be linked.  The second block gives you a class to apply with a span tag to the numbers you would like linked and styled.
 
@@ -130,14 +133,23 @@
 
       .mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
             text-decoration: default;
-            color: orange !important;
+            color: blue !important;
             pointer-events: auto;
             cursor: default;
           }
     }
 
     @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-      
+      .logo img {
+          display: none;
+      }
+      .logo {
+        display: block;
+        width: 266px;
+        height: 28px;
+        text-indent: -9999px;
+        background: transparent url('http://queencitystacks.com/images/img-full-logo@2x.png') no-repeat top left;
+      }
     }
 
     /* Following Android targeting from:
@@ -150,7 +162,16 @@
       /* Put CSS for medium density (mdpi) Android layouts in here */
     }
     @media only screen and (-webkit-device-pixel-ratio:1.5){
-      /* Put CSS for high density (hdpi) Android layouts in here */
+      .logo img {
+          display: none;
+      }
+      .logo {
+        display: block;
+        width: 266px;
+        height: 28px;
+        text-indent: -9999px;
+        background: transparent url('http://queencitystacks.com/images/img-full-logo@2x.png') no-repeat top left;
+      }
     }
     /* end Android targeting */
   </style>
@@ -195,7 +216,7 @@
           <td width="20"></td>
 
           <td width="300">
-            <a href="*|LIST:URL|*" style="display: block;">
+            <a href="*|LIST:URL|*" style="display: block;" class="logo">
               <img src="http://queencitystacks.com/images/img-full-logo.png" width="266" height="28" alt="Queen City Stacks" />
             </a>
           </td>
@@ -238,6 +259,7 @@
         </tr>
         
         <!-- Story -->
+        *|RSSITEMS:|*
         <tr mc:repeatable="story-template">
           <!-- H-Spacer -->
           <td width="20"></td>
@@ -247,10 +269,10 @@
               <tr>
                 <td>
                   <h2 style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 18px; margin: 0 0 10px 0;">
-                    <a href="#" style="color: #EB184B; text-decoration: none;" mc:edit>Example Story Headline</a>
+                    <a href="*|RSSITEM:URL|*" style="color: #049cdb; text-decoration: none;" mc:edit>*|RSSITEM:TITLE|*</a>
                   </h2>
-                  <p style="margin: 0 0 5px 0; font-size: 15px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; " mc:edit>Aenean ornare dignissim interdum. Morbi eu porta diam. Nulla pharetra, risus at scelerisque ultrices, eros mi consectetur libero, a vulputate nunc diam sed massa. In id nisi sed nibh gravida hendrerit ut non nunc.</p>
-                  <a href="#" style="font-size: 13px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; color: #EB184B; text-decoration: none;">Read More&hellip;</a>
+                  <p style="margin: 0 0 5px 0; font-size: 15px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; " mc:edit>*|RSSITEM:CONTENT|*</p>
+                  <a href="*|RSSITEM:URL|*" style="font-size: 13px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; color: #049cdb; text-decoration: none;">Read More&hellip;</a>
                 </td>
               </tr>
               <!-- V-Spacer -->
@@ -276,10 +298,9 @@
           <td width="20"></td>
 
           <td colspan="2">
-            <p style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;"><a href="*|UNSUB|*" style="color: #EB184B; text-decoration: none;">Unsubscribe</a> | <a href="*|ARCHIVE|*" style="color: #EB184B; text-decoration: none;">View this Email in Your Browser</a></p>
+            <p style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;"><a href="*|UNSUB|*" style="color: #049cdb; text-decoration: none;">Unsubscribe</a> | <a href="*|ARCHIVE|*" style="color: #EB184B; text-decoration: none;">View this Email in Your Browser</a></p>
             
             <p style="color: #BEBEBE;font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;">You are on this list because you signed up for emails.</p>
-            <p style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;"><a href="#" style="color: #EB184B; text-decoration: none;">Add us to your address book</a></p>
             <p style="color: #BEBEBE; font-style: italic;font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;">&copy; Copyright 2013 Queen City Stacks</p>
           </td>
 

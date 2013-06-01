@@ -1,11 +1,12 @@
 <section class="archives">
   <h1>Archive</h1>
+  <p>Interested in yesterday's news? We thought so.</p>
   <% @archives.each do |archive| %>
   <section class="archive-month">
-    <h2><%= "#{archive[:month]} <i class='icon-caret-down'></i>" %></h2>
+    <h2><%= "#{archive[:month]}" %></h2>
     <ul>
     <% archive[:articles].each do |article| %>
-      <li><%= article.date.strftime('%m.%d') %> &mdash; <%= link_to article.title, article.data.try(:url), :target => '_blank' %></li>
+      <li><%= link_to article.title, article.data.try(:url), :target => '_blank' %> <time> &mdash; <%= article.date.strftime('%m.%d') %></time> </li>
     <% end %>
     </ul>
   </section>
