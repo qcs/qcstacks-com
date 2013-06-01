@@ -25,7 +25,7 @@ page "/feed.xml", layout: false
 
 ready do
   archive_resources = []
-  blog.articles.group_by {|a| a.date.month }.each do |month, month_articles, month_name|
+  recent_articles.group_by {|a| a.date.strftime('%B %Y') }.each do |month, month_articles, month_name|
     archive_resources << {month: month, articles: month_articles } 
   end
   page "/archive/index.html", :layout => :public do
