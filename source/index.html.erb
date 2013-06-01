@@ -1,13 +1,14 @@
 
+<% recent_articles.each do |date, articles| %>
 <article class="day-summary">
   <header class="summary-header">
-    <h1><%= blog.articles.first.date.strftime("%A, %B %e %Y") %></h1>
+    <h1><%= date.strftime('%A, %B %e %Y') %></h1>
   </header>
   <!-- /summary-header -->
 
   <div class="summary-body">
     <ul class="important-articles">
-    <% todays_articles.each do |article| %>
+    <% articles.each do |article| %>
       <li class="article">
         <h2><%= link_to article.title, article.data.try(:[], :url), target: '_blank' %></h2>
         <p><%= article.body %></p>
@@ -20,9 +21,10 @@
   <!-- /summary-body -->
 
   <footer class="summary-footer">
-    &mdash; 30 &mdash;
+    &mdash; <%= articles.count %> &mdash;
   </footer>
   <!-- /summary-footer -->
 
 </article>
+<% end %>
 <!-- /day-summary -->

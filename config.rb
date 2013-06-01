@@ -57,8 +57,12 @@ helpers do
     end
   end
 
-  def todays_articles
-    @todays_articles ||= blog.articles.collect{ |a| a if a.date == Date.today }.compact
+  def recent_articles
+    @recent_articles ||= blog.articles.collect{ |a| a if a.date <= Date.today }.compact.group_by{ |a| a.date }.take(5) #.collect{ |a| a if a.date == Date.today }.compact
+  end
+
+  def todays_date
+    @todays_date ||= Date.today.strftime("%A, %B %e %Y")
   end
 
   def month(month)
