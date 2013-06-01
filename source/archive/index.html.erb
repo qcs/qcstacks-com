@@ -5,7 +5,7 @@
     <h2><%= "#{archive[:month]} <i class='icon-caret-down'></i>" %></h2>
     <ul>
     <% archive[:articles].each do |article| %>
-      <li><%= link_to article.title, article.data.try(:url), :target => '_blank' %></li>
+      <li><%= article.date.strftime('%m.%d') %> &mdash; <%= link_to article.title, article.data.try(:url), :target => '_blank' %></li>
     <% end %>
     </ul>
   </section>
