@@ -51,7 +51,7 @@ helpers do
   end
 
   def recent_articles_grouped
-    @recent_articles_grouped ||= recent_articles.group_by{|a| a.date }
+    @recent_articles_grouped ||= recent_articles.group_by{|a| a.date }.take(1)
   end
 
   def todays_date

@@ -181,10 +181,11 @@ a {
   }
 } //main-content 
 
+h1 {
+  font-size: calc-em(32px);
+}
+
 .archives {
-  h1 {
-    font-size: calc-em(32px);
-  }
   h2 {
     font-size: calc-em(21px);
     font-weight: normal;
