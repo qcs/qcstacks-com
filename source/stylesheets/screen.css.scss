@@ -307,8 +307,11 @@ h1 {
     li {
       display: inline-block;
       margin-right: 1.618em;
-      &.twitter {
+      &.rss {
         margin-right: 0;
+        float: right;
+      }
+      &.twitter {
         float: right;
       }
     } //li
