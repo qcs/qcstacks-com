@@ -99,7 +99,6 @@ a {
     @include respond-to('medium-screens') {
       @extend %group;
     }
-    
   }
   h1 {
     font-size: calc-em(32px);
