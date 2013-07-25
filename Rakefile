@@ -33,7 +33,7 @@ task :create, [:filename] do |t, args|
   dst = "source/#{today.year}/#{month}/#{day}/"
   FileUtils.mkdir_p(dst)
   File.open("#{dst}#{filename}.html.erb", 'w') {|f|
-    f.write("---\r\ntitle: #{args.filename}\r\nurl: \r\n---\r\n")
+    f.write("---\r\ntitle: \r\nurl: \r\n---\r\n")
   }
   p "#{dst}/#{filename} created"
 end
