@@ -263,6 +263,13 @@ h1 {
 .important-articles {
   .article {
     margin-bottom: 2.618em;
+    ul {
+      li {
+        font-size: calc-em(18px);
+        list-style-type: disc;
+        display: list-item;
+      }
+    }
   }
 }
 
