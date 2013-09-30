@@ -15,10 +15,11 @@ activate :blog do |blog|
   blog.calendar_template = "calendar.html"
 end
 
+activate :directory_indexes
+
 ###---------------------------------------------------- Layout Settings
 
 page "/", layout: "public"
-page "/archive/*", layout: "public"
 page "/about", layout: "public"
 page "/email/*", layout: false
 page "/feed.xml", layout: false
@@ -26,9 +27,9 @@ page "/feed.xml", layout: false
 ready do
   archive_resources = []
   recent_articles.group_by {|a| a.date.strftime('%B %Y') }.each do |month, month_articles, month_name|
-    archive_resources << {month: month, articles: month_articles } 
+    archive_resources << {month: month, articles: month_articles, date: Date.parse(month) } 
   end
-  page "/archive/index.html", :layout => :public do
+  page "/archive.html", :layout => :public do
     @archives = archive_resources
   end
 end
