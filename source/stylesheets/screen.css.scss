@@ -192,15 +192,39 @@ h1 {
     }
   }
   .archive-month {
+    margin-bottom: calc-em(24px);
+    padding-bottom: calc-em(24px);
+    border-bottom: 1px solid #CCC;
+    &:last-child {
+      border: none;
+    }
+    h2 {
+      font-size: calc-em(27px);
+    }
+    h3 {
+      font-size: calc-em(21px);
+    }
     time {
       font-family: $altFontFamily;
       font-size: calc-em(16px);
       color: darken($grayLight, 5%);
       font-weight: 400;
     }
-    margin-bottom: calc-em(24px);
-    > ul {
+    ul {
+      margin-bottom: calc-em(24px);
+      &:last-child {
+        margin: 0;
+      }
+      li {
+        list-style-type: disc;
+        display: list-item;
+
+      }
     }
+    .archive-day {
+      margin-bottom: calc-em(16px);
+    }
+
   }
 }
 

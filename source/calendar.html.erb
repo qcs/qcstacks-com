@@ -1,33 +1,24 @@
 ---
 pageable: true
+layout: public
 ---
-<h1>Archive for
-  <% case page_type
-     when 'day' %>
-    <%= Date.new(year, month, day).strftime('%b %e %Y') %>
-  <% when 'month' %>
-    <%= Date.new(year, month, 1).strftime('%b %Y') %>
-  <% when 'year' %>
-    <%= year %>
-  <% end %>
-</h1>
 
-<% if paginate %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
+<% page_articles.reverse.group_by(&:date).each do |date, articles| %>
+<article class="day-summary">
+  <header class="summary-header">
+    <h1><%= Date.new(date.year, date.month, date.day).strftime('%A, %B %e %Y') %></h1>
+  </header>
 
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
-
-<ul>
-  <% page_articles.each_with_index do |article, i| %>
-    <li><%= link_to article.date, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-  <% end %>
-</ul>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
+  <div class="summary-body">
+    <ul class="important-articles">
+      <% articles.reverse.each do |article| %>
+      <li class="article">
+        <h2><%= link_to article.title, article.data.try(:[], :url), target: '_blank' %></h2>
+        <p><%= article.body %></p>
+        <%= link_to 'Read more &hellip;', article.data.try(:[], :url), class: 'read-more', target: '_blank' %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</article>
 <% end %>
