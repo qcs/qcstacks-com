@@ -39,8 +39,8 @@ $linkColorHover:                   darken($linkColor,8%);
       
 // Typography                    
 $baseFontSize:                     16px;
-$baseFontFamily:                   "adobe-garamond-pro""", Cambria, Georgia, Times, "Times New Roman", serif;
-$headlineFontFamily:               "chaparral-pro-display", Cambria, Georgia, Times, "Times New Roman", serif;
+$baseFontFamily:                   "adobe-garamond-pro", Cambria, Georgia, Times, "Times New Roman", serif;
+$headlineFontFamily:               $baseFontFamily; 
 $altFontFamily:                    "freight-sans-pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $baseLineHeight:                   1.5;
 $textColor:                        $grayDarkest;
