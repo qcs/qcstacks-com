@@ -73,8 +73,3 @@ end
 
 ###---------------------------------------------------- Deploy Settings
 
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.user = "procload"
-end
-
