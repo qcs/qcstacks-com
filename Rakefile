@@ -1,3 +1,4 @@
+require 'middleman-gh-pages'
 desc "create text file for new story"
 task :create, [:filename] do |t, args|
   filename = args.filename.downcase.gsub(/[^a-z0-9]/,'-')
