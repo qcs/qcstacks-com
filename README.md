@@ -18,7 +18,7 @@ $ bundle
 
 3. #####Clone and rename the build directory to deploy to Github Pages#####
 ```
-$ git clone https://github.com/qcs/qcstacks-com.git -b gh-pages ./build
+$ git clone git@github.com:qcs/qcstacks-com.git -b gh-pages ./build
 ```
 4. #####Add a New Story (Dependent on running ZSH as your shell)#####
 ```
