@@ -204,17 +204,15 @@
     <td>
       <!-- Main Content Table -->
       <table width="600px" cellpadding="0" cellspacing="0" border="0" align="center" style="border-left: 1px solid #e5e5e5; border-right: 1px solid #e5e5e5; background: #FFFFFF;">
-        
         <!-- V-Spacer -->
         <tr><td height="20" colspan="4"></td></tr>
-        
         <!-- Header -->
         <tr>
           <!-- H-Spacer -->
           <td width="20"></td>
 
           <td width="300">
-            <a href="*|LIST:URL|*" style="display: block;" class="logo">
+            <a href="http://qcstacks.com/" style="display: block;" class="logo">
               <img src="http://qcstacks.com/images/img-full-logo.png" width="266" height="28" alt="Queen City Stacks" class="logo-img" />
             </a>
           </td>
@@ -248,17 +246,15 @@
 
           <!-- H-Spacer -->
           <td width="20px"></td>
-          
         </tr>
 
         <!-- Spacer -->
         <tr>
           <td height="20" colspan="4"></td>
         </tr>
-        
         <!-- Story -->
-        *|RSSITEMS:|*
-        <tr mc:repeatable="story-template">
+        <datarepeater type="rss" src="http://qcstacks.com/feed.xml">
+        <tr>
           <!-- H-Spacer -->
           <td width="20"></td>
 
@@ -267,10 +263,10 @@
               <tr>
                 <td>
                   <h2 style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 18px; margin: 0 0 10px 0;">
-                    <a href="*|RSSITEM:URL|*" style="color: #049cdb; text-decoration: none;" mc:edit>*|RSSITEM:TITLE|*</a>
+                    <rssitemlink style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; color: #049cdb; text-decoration: none;"><rsstitle></rsstitle></rssitemlink><a href="*|RSSITEM:URL|*" style="color: #049cdb; text-decoration: none;" mc:edit>*|RSSITEM:TITLE|*</a>
                   </h2>
-                  <p style="margin: 0 0 5px 0; font-size: 15px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; " mc:edit>*|RSSITEM:CONTENT|*</p>
-                  <a href="*|RSSITEM:URL|*" style="font-size: 13px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; color: #049cdb; text-decoration: none;">Read More&hellip;</a>
+                  <rssbody style="margin: 0 0 5px 0; font-size: 15px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; " />
+                  <rssitemlink style="font-size: 13px; line-height: 22px; font-family: Cambria, Georgia, Times, 'Times New Roman', serif; color: #049cdb; text-decoration: none;">
                 </td>
               </tr>
               <!-- V-Spacer -->
@@ -282,7 +278,9 @@
           <td width="20"></td>
 
         </tr>
-        *|END:RSSITEMS|*
+
+        </datarepeater>
+
         <!-- V-Spacer w/ Border -->
         <tr>
           <td width="20px"></td>
@@ -296,10 +294,9 @@
           <td width="20"></td>
 
           <td colspan="2">
-            <p style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;"><a href="*|UNSUB|*" style="color: #049cdb; text-decoration: none;">Unsubscribe</a> | <a href="*|ARCHIVE|*" style="color: #049cdb; text-decoration: none;">View this Email in Your Browser</a></p>
-            
+            <p style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;"><unsubscribe style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; color: #049cdb; text-decoration: none;">Unsubscribe</unsubscribe> | <webversion style="font-family: Cambria, Georgia, Times, 'Times New Roman', serif; color: #049cdb; text-decoration: none;">View this email in your browser</webversion></p>
             <p style="color: #BEBEBE;font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;">You are on this list because you signed up for emails.</p>
-            <p style="color: #BEBEBE; font-style: italic;font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;">&copy; Copyright 2013 Queen City Stacks</p>
+            <p style="color: #BEBEBE; font-style: italic;font-family: Cambria, Georgia, Times, 'Times New Roman', serif; font-size: 12px; margin: 0 0 10px 0;">&copy; Copyright 2014 Queen City Stacks</p>
           </td>
 
           <!-- H-Spacer -->
